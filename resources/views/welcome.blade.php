@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Inventaris Olahraga</title>
+    <title>SportsVault</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,16 +19,9 @@
 </head>
 
 <body
-    class="bg-gray-100 dark:bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 text-gray-950 dark:text-white p-5 flex flex-col gap-5 items-center min-h-screen">
-    <header
-        class="flex flex-col gap-5 items-center justify-center w-full min-h-[75vh] bg-gradient-to-tr from-emerald-950 via-zinc-950 to-emerald-900 rounded-3xl">
-        <h2
-            class="bg-gradient-to-tr from-zinc-300 via-emerald-200 to-white bg-clip-text w-fit text-transparent text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-semibold uppercase">
-            Inventaris Peralatan Olahraga
-        </h2>
-    </header>
+    class="bg-gray-100 dark:bg-gradient-to-tr from-zinc-900 via-zinc-950 to-zinc-900 text-gray-950 dark:text-white px-5 pb-5 flex flex-col gap-5 items-center min-h-screen">
     <nav
-        class="sticky top-0 w-full lg:max-w-7xl w-full bg-transparent backdrop-blur-md text-sm not-has-[nav]:hidden border-b border-zinc-700 py-5 z-50 mix-blend-difference">
+        class="sticky top-0 w-full lg:max-w-7xl bg-transparent backdrop-blur-md text-sm not-has-[nav]:hidden border-b border-zinc-700 py-5 z-50 mix-blend-difference">
         @if (Route::has('login'))
             <nav class="flex items-center justify-between gap-4">
                 <x-application-logo class="text-3xl" />
@@ -94,15 +87,40 @@
         @endif
     </nav>
 
-    <div class="space-y-5 max-w-7xl w-full">
-        <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
+    <header
+        class="flex flex-col gap-5 items-start justify-between w-full max-w-7xl min-h-[65vh] p-5 from-green-950 via-emerald-950 to-zinc-950 rounded-3xl"
+        style="background-image: url('{{ asset('images/bg_gradient.png') }}');">
+        <div class="space-y-0">
+            <h2 class="w-fit text-5xl md:text-6xl uppercase">
+                Selamat datang di
+            </h2>
+            <h2 class="w-fit text-6xl md:text-8xl uppercase">
+                Sports Vault
+            </h2>
+        </div>
+
+        <h2 class="w-fit text-2xl md:text-5xl uppercase">
+            Inventaris Olahraga & Peminjaman Peralatan
+        </h2>
+    </header>
+
+    <main class="space-y-5 max-w-7xl w-full min-h-[65vh]">
+
+        <hr class="border-t-2 border-zinc-800">
+
+        <div class="w-full px-8 pb-8 pt-5 rounded-3xl grayscale"
+            style="background-image: url('{{ asset('images/bg_gradient.png') }}');">
+            <h3 class="text-6xl text-zinc-950 uppercase">
+                Peralatan Tersedia
+            </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
 
             @foreach ($product as $p)
-                <div
-                    class="bg-gradient-to-tr from-black to-zinc-900 w-full aspect-square p-2 border border-zinc-800 rounded-2xl overflow-hidden hover:brightness-105 transition">
-
+                @if ($p->status_barang === 'Baik')
                     <a href="{{ route('form.create') }}"
-                        class="group relative flex h-full w-full overflow-hidden rounded-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30">
+                        class="group relative flex h-full w-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 border border-zinc-800">
 
                         <!-- Gambar -->
                         <img src="{{ asset('storage/' . $p->gambar_barang) }}" alt="{{ $p->nama_barang }} image"
@@ -123,10 +141,17 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                @endif
             @endforeach
 
         </div>
+
+        <hr class="border-t-2 border-zinc-800">
+
+    </main>
+
+    <div class="w-full max-w-7xl">
+        @include('layouts.footer')
     </div>
 </body>
 

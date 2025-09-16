@@ -97,8 +97,7 @@ class ProductController extends Controller
             $path = $request->file('gambar_barang')->store('images', 'public');
             $validatedData['gambar_barang'] = $path;
         }
-
-        // update via instance, bukan static
+        
         $product->update($validatedData);
 
         return redirect()->route('product.index')->with('success', 'Produk berhasil diupdate');

@@ -17,8 +17,8 @@
             <span class="text-sm text-zinc-300">Status Barang</span>
 
             <select name="status_barang" class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600" required>
-                <option value="Baik" class="bg-zinc-950 text-white">Baik</option>
-                <option value="Rusak" class="bg-zinc-950 text-white">Rusak</option>
+                <option value="Baik" class="bg-zinc-950 text-white" {{ $product->status_barang == 'Baik' ? 'selected' : '' }}>Baik</option>
+                <option value="Rusak" class="bg-zinc-950 text-white" {{ $product->status_barang == 'Rusak' ? 'selected' : '' }}>Rusak</option>
             </select>
         </label>
 
@@ -45,7 +45,7 @@
                 Batal
             </a>
             <button type="submit"
-                class="px-5 py-2 rounded-lg bg-gradient-to-bl from-emerald-600 to-zinc-900 text-white text-sm border border-zinc-800 hover:brightness-110">
+                class="px-5 py-2 rounded-lg bg-gradient-to-bl from-emerald-600 to-green-950 text-white text-sm border border-zinc-800 hover:brightness-110">
                 Kirim
             </button>
         </div>
