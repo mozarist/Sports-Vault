@@ -8,8 +8,11 @@
     <title>SportsVault</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -19,139 +22,155 @@
 </head>
 
 <body
-    class="bg-gray-100 dark:bg-gradient-to-tr from-zinc-900 via-zinc-950 to-zinc-900 text-gray-950 dark:text-white px-5 pb-5 flex flex-col gap-5 items-center min-h-screen">
-    <nav
-        class="sticky top-0 w-full lg:max-w-7xl bg-transparent backdrop-blur-md text-sm not-has-[nav]:hidden border-b border-zinc-700 py-5 z-50 mix-blend-difference">
-        @if (Route::has('login'))
-            <nav class="flex items-center justify-between gap-4">
-                <x-application-logo class="text-3xl" />
-                @auth
-                    <div class="flex gap-2 items-center">
-                        <a href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-2 dark:text-white border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-zinc-700 dark:hover:border-zinc-600 rounded-md text-sm">
-                            Dashboard
-                        </a>
-                        <div class="sm:flex sm:items-center border border-zinc-700 rounded-md">
-                            <x-dropdown align="right" width="48">
-                                <x-slot name="trigger">
-                                    <button
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-white bg-white dark:bg-zinc-800 hover:text-gray-700 dark:hover:text-zinc-300 focus:outline-none transition ease-in-out duration-150">
-                                        <div>{{ Auth::user()->name }}</div>
+    class="bg-gray-100 dark:bg-gradient-to-tr from-zinc-900 via-zinc-950 to-zinc-900 text-gray-950 dark:text-white font-[Inter] px-5 pb-5 flex flex-col gap-5 items-center min-h-screen">
 
-                                        <div class="ms-1">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </x-slot>
+    <div
+        class="flex flex-col gap-5 items-center md:max-w-xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-7xl w-full overflow-hidden">
 
-                                <x-slot name="content">
-                                    <x-dropdown-link :href="route('profile.edit')">
-                                        {{ __('Profile') }}
-                                    </x-dropdown-link>
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')"
-                                            onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </x-dropdown-link>
-                                    </form>
-                                </x-slot>
-                            </x-dropdown>
-                        </div>
-                    </div>
-                @else
-                    <div class="flex gap-2 items-center">
-                        <a href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
-                            Log in
-                        </a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
+        <nav
+            class="sticky top-0 w-full lg:max-w-7xl bg-transparent backdrop-blur-md text-sm not-has-[nav]:hidden border-b border-zinc-700 py-5 z-50 mix-blend-difference">
+            @if (Route::has('login'))
+                <nav class="flex items-center justify-between gap-4">
+                    <x-application-logo class="text-xl md:text-3xl" />
+                    @auth
+                        <div class="flex gap-2 items-center">
+                            <a href="{{ url('/dashboard') }}"
+                                class="inline-block px-5 py-2 dark:text-white border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-zinc-700 dark:hover:border-zinc-600 rounded-md text-sm">
+                                Dashboard
                             </a>
-                        @endif
-                    </div>
-                @endauth
-            </nav>
-        @endif
-    </nav>
+                            <div class="sm:flex sm:items-center border border-zinc-700 rounded-md">
+                                <x-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <button
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-white bg-white dark:bg-zinc-800 hover:text-gray-700 dark:hover:text-zinc-300 focus:outline-none transition ease-in-out duration-150">
+                                            <div>{{ Auth::user()->name }}</div>
 
-    <header
-        class="flex flex-col gap-5 items-start justify-between w-full max-w-7xl min-h-[65vh] p-5 from-green-950 via-emerald-950 to-zinc-950 rounded-3xl"
-        style="background-image: url('{{ asset('images/bg_gradient.png') }}');">
-        <div class="space-y-0">
-            <h2 class="w-fit text-5xl md:text-6xl uppercase">
-                Selamat datang di
-            </h2>
-            <h2 class="w-fit text-6xl md:text-8xl uppercase">
-                Sports Vault
-            </h2>
-        </div>
+                                            <div class="ms-1">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </x-slot>
 
-        <h2 class="w-fit text-2xl md:text-5xl uppercase">
-            Inventaris Olahraga & Peminjaman Peralatan
-        </h2>
-    </header>
+                                    <x-slot name="content">
+                                        <x-dropdown-link :href="route('profile.edit')">
+                                            {{ __('Profile') }}
+                                        </x-dropdown-link>
 
-    <main class="space-y-5 max-w-7xl w-full min-h-[65vh]">
+                                        <!-- Authentication -->
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
 
-        <hr class="border-t-2 border-zinc-800">
-
-        <div class="w-full px-8 pb-8 pt-5 rounded-3xl grayscale"
-            style="background-image: url('{{ asset('images/bg_gradient.png') }}');">
-            <h3 class="text-6xl text-zinc-950 uppercase">
-                Peralatan Tersedia
-            </h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
-
-            @foreach ($product as $p)
-                @if ($p->status_barang === 'Baik')
-                    <a href="{{ route('form.create') }}"
-                        class="group relative flex h-full w-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 border border-zinc-800">
-
-                        <!-- Gambar -->
-                        <img src="{{ asset('storage/' . $p->gambar_barang) }}" alt="{{ $p->nama_barang }} image"
-                            class="h-full w-full object-cover object-center bg-zinc-800 transition-transform duration-500 group-hover:scale-105" />
-
-                        <!-- Overlay -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white transition-opacity duration-300">
-                            <div class="absolute inset-x-0 bottom-0 space-y-4 p-4">
-                                <h3 class="text-2xl font-semibold">{{ $p->nama_barang }}</h3>
-
-                                <div class="flex flex-col">
-                                    <p class="text-base font-semibold">Kondisi {{ $p->status_barang }}</p>
-                                    <p class="text-base font-semibold">Tersedia {{ $p->jumlah_barang }}</p>
-                                </div>
-
-                                <x-primary-button>Isi form untuk meminjam</x-primary-button>
+                                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-dropdown-link>
+                                        </form>
+                                    </x-slot>
+                                </x-dropdown>
                             </div>
                         </div>
-                    </a>
-                @endif
-            @endforeach
+                    @else
+                        <div class="flex gap-2 items-center">
+                            <a href="{{ route('login') }}"
+                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
+                                Log in
+                            </a>
 
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                                    Register
+                                </a>
+                            @endif
+                        </div>
+                    @endauth
+                </nav>
+            @endif
+        </nav>
+
+        <header class="flex flex-col gap-5 items-start justify-between w-full max-w-7xl min-h-[80vh] rounded-3xl">
+            <div class="space-y-10">
+                <div class="space-y-0">
+                    <h2 class="w-fit text-4xl md:text-5xl lg:text-6xl uppercase">
+                        Selamat datang di
+                    </h2>
+                    <h2 class="w-fit text-7xl lg:text-8xl uppercase">
+                        Sports Vault
+                    </h2>
+                </div>
+
+                <h2 class="w-fit text-2xl uppercase">
+                    #Inventaris Olahraga & Peminjaman Peralatan
+                </h2>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-2 items-center w-full overflow-x-hidden">
+                <img src="{{ asset('images/Sports_equipment_storage.jfif') }}" alt=""
+                    class="w-full h-36 object-cover rounded-xl grayscale hover:filter-none transition">
+                <img src="{{ asset('images/sports-gear.jfif') }}" alt=""
+                    class="w-full h-36 object-cover rounded-xl grayscale hover:filter-none transition">
+            </div>
+        </header>
+
+        <main class="space-y-5 max-w-7xl w-full min-h-[65vh]">
+
+            <hr class="border-t-2 border-zinc-800">
+
+            <div class="bg-emerald-500 w-full px-5 py-5 rounded-md">
+                <h3 class="text-4xl md:text-6xl text-zinc-950 uppercase">
+                    Peralatan Tersedia
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+
+                @foreach ($product as $p)
+                    @if ($p->status_barang === 'Baik')
+                        <a href="{{ route('form.create') }}"
+                            class="group relative flex h-full w-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 border border-zinc-800">
+
+                            <!-- Gambar -->
+                            <img src="{{ asset('storage/' . $p->gambar_barang) }}" alt="{{ $p->nama_barang }} image"
+                                class="h-full w-full object-cover object-center bg-zinc-800 transition-transform duration-500 group-hover:scale-105" />
+
+                            <!-- Overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white transition-opacity duration-300">
+                                <div class="absolute inset-x-0 bottom-0 space-y-4 p-4">
+                                    <h3 class="text-2xl font-semibold">{{ $p->nama_barang }}</h3>
+
+                                    <div class="flex flex-col">
+                                        <p class="text-base font-semibold">Kondisi {{ $p->status_barang }}</p>
+                                        <p class="text-base font-semibold">Tersedia {{ $p->jumlah_barang }}</p>
+                                    </div>
+
+                                    <x-primary-button>Isi form untuk meminjam</x-primary-button>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                @endforeach
+
+            </div>
+
+            @if ($product->isEmpty())
+                <p class="text-xl bg-gradient-to-tr from-zinc-950 to-zinc-900 p-5 border border-zinc-800 rounded-md">
+                    Tidak ada peralatan yang tersedia
+                </p>
+            @endif
+
+            <hr class="border-t-2 border-zinc-800">
+
+        </main>
+
+        <div class="w-full max-w-7xl">
+            @include('layouts.footer')
         </div>
-
-        <hr class="border-t-2 border-zinc-800">
-
-    </main>
-
-    <div class="w-full max-w-7xl">
-        @include('layouts.footer')
     </div>
 </body>
 

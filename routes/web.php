@@ -1,18 +1,19 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ProductController::class, 'welcome']); 
+Route::get('/', [ProductController::class, 'welcome']);
 
-Route::resource('/welcome', WelcomeController::class,);
+Route::resource('/welcome', WelcomeController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::get('/form/create', [FormController::class, 'create'])->name('form.create');
 
