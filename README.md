@@ -14,8 +14,7 @@ Tailwind CSS - Frontend Styling
 
 [MySQL] - Database
 
-Vite
- - Build Tool
+Vite - Build Tool
 
 ---
 
@@ -33,8 +32,8 @@ Ikuti langkah-langkah berikut untuk menjalankan project secara lokal:
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/username/sports-vault.git
-   cd sports-vault
+   https://github.com/mozarist/Sports-Vault.git
+   cd Sports-Vault
 2. **Install Dependencies**
    ```bash
    composer install
