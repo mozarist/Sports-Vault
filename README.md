@@ -4,6 +4,21 @@ Sports Vault membantu sekolah, komunitas, atau organisasi dalam mengelola data i
 
 ---
 
+# 📂 Tech Stack
+
+Laravel - Backend Framework
+
+Laravel Breeze - Authentication Starter Kit
+
+Tailwind CSS - Frontend Styling
+
+[MySQL] - Database
+
+Vite
+ - Build Tool
+
+---
+
 ## 🚀 Fitur Utama
 - Autentikasi pengguna (Laravel Breeze).
 - Manajemen data perlengkapan olahraga.
@@ -21,5 +36,20 @@ Ikuti langkah-langkah berikut untuk menjalankan project secara lokal:
    git clone https://github.com/username/sports-vault.git
    cd sports-vault
 2. **Install Dependencies**
+   ```bash
    composer install
    npm install
+3. **Setup Environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+4. **Database Migration**
+   ```bash
+   php artisan migrate
+5. **Linking Storage**
+   ```bash
+   php artisan storage:link
+6. **Run Application**
+   ```bash
+   composer run dev
+7. **Run the server in command with your browser**
