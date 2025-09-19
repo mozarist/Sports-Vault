@@ -58,6 +58,3 @@ Follow these steps to run the application locally:
 
 ## App Preview
 <img width="940" height="913" alt="image" src="https://github.com/user-attachments/assets/7707e447-46fc-459b-8e3f-168855a57853" />
-
-<img width="940" height="476" alt="image" src="https://github.com/user-attachments/assets/e61b9fd7-0fd1-424f-b169-44da80953398" />
-
