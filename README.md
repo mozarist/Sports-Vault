@@ -1,4 +1,4 @@
-<img width="940" height="913" alt="image" src="https://github.com/user-attachments/assets/7707e447-46fc-459b-8e3f-168855a57853" /><img width="940" height="913" alt="image" src="https://github.com/user-attachments/assets/59274c49-bad0-488e-af13-4ed3b086b1c6" /># <h1>🏀 Sports Vault</h1>
+<h1>🏀 Sports Vault</h1>
 Web-App Sports Equipment Inventory Management Built on Laravel + Breeze.
 Sports Vault help school, community, or organization in lending and managing sports equipment inventory data easily, clean, and efficient.
 
@@ -55,3 +55,9 @@ Follow these steps to run the application locally:
    ```bash
    composer run dev
 8. **Run the server in command with your browser**
+
+## App Preview
+<img width="940" height="913" alt="image" src="https://github.com/user-attachments/assets/7707e447-46fc-459b-8e3f-168855a57853" />
+
+<img width="940" height="476" alt="image" src="https://github.com/user-attachments/assets/e61b9fd7-0fd1-424f-b169-44da80953398" />
+
