@@ -42,13 +42,14 @@ Ikuti langkah-langkah berikut untuk menjalankan project secara lokal:
    ```bash
    cp .env.example .env
    php artisan key:generate
-4. **Database Migration**
+4. **Start Local Host (using XAMPP/Laragon**
+5. **Database Migration**
    ```bash
    php artisan migrate
-5. **Linking Storage**
+6. **Linking Storage**
    ```bash
    php artisan storage:link
-6. **Run Application**
+7. **Run Application**
    ```bash
    composer run dev
-7. **Run the server in command with your browser**
+8. **Run the server in command with your browser**
