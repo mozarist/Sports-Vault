@@ -15,7 +15,7 @@
             </label>
 
             <label for="nama_barang" class="block mb-3">
-                <span class="text-sm text-zinc-300">Status Barang</span>
+                <span class="text-sm text-zinc-300">Nama Barang</span>
 
                 <select name="nama_barang"
                     class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600"
